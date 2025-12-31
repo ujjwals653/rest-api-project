@@ -113,9 +113,16 @@ small {
                 background-color: white;
                 outline: none;
                 padding: 10px 12px 6px 12px;
+                cursor: pointer;
+                transition: all 0.2s;
+                
                 svg {
                     width: 20px;
                     height: 20px;
+                }
+
+                &:hover {
+                    background-color: $bg-color;
                 }
             }
         }
@@ -156,6 +163,154 @@ small {
     gap: 10px;
 }
 
+// Country Details Page Styles
+.details-container {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.details-header {
+    margin-bottom: 30px;
+    
+    .back-btn {
+        display: inline-block;
+        padding: 8px 15px;
+        background-color: $bg-color;
+        border: $border;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-bottom: 20px;
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: #e8e8e8;
+        }
+    }
+
+    h1 {
+        font-size: 35px;
+        line-height: 40px;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    small {
+        font-size: 16px;
+        opacity: 0.7;
+    }
+}
+
+.details-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.details-flag {
+    width: 100%;
+    border: $border;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: $bg-color;
+
+    img {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain;
+        display: block;
+    }
+}
+
+.details-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-section {
+    border: $border;
+    border-radius: 3px;
+    overflow: hidden;
+
+    h3 {
+        display: block;
+        padding: 10px 15px;
+        background-color: $bg-color;
+        border-bottom: $border;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        tbody, tr, td {
+            border-bottom: $border;
+            padding: 10px 15px;
+        }
+
+        td:nth-child(odd) {
+            font-weight: 600;
+            width: 40%;
+        }
+
+        td:nth-child(even) {
+            font-weight: 200;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+    }
+}
+
+.borders-list {
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .border-btn {
+        padding: 6px 12px;
+        background-color: white;
+        border: $border;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 13px;
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: #d9edf7;
+            color: #31708f;
+            border-color: #bce8f1;
+        }
+    }
+}
+
+.details-loading,
+.details-error {
+    text-align: center;
+    padding: 50px;
+    font-size: 18px;
+
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: $bg-color;
+        border: $border;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 14px;
+
+        &:hover {
+            background-color: #e8e8e8;
+        }
+    }
+}
+
 @media (max-width: 920px) {
     .countries-display{
         flex-direction: column;
@@ -165,5 +320,30 @@ small {
         td:nth-child(odd){
             width: 60%;
         }
-        }
+    }
+
+    .container {
+        margin: 20px 20px;
+    }
+
+    .details-flag img {
+        max-height: 250px;
+    }
+}
+
+@media (min-width: 768px) {
+    .details-content {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .details-flag {
+        flex: 1;
+        min-width: 300px;
+        max-width: 400px;
+    }
+
+    .details-info {
+        flex: 2;
+    }
 }
